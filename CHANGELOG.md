@@ -1,3 +1,10 @@
+# 1.0.0 (2023-06-10)
+
+
+### Features
+
+* update netlify deploy link ([ad4ae54](https://github.com/komisz/mold-partner-landing/commit/ad4ae54bffaee14eb4d2f0e77bdb609eb92202aa))
+
 # [3.11.0](https://github.com/ixartz/Next-js-Boilerplate/compare/v3.10.1...v3.11.0) (2023-06-07)
 
 
