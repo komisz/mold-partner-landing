@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/komisz/mold-partner-landing/compare/v1.0.0...v1.1.0) (2023-06-12)
+
+
+### Features
+
+* scroll nav with cleanup ([b701c01](https://github.com/komisz/mold-partner-landing/commit/b701c01be4bf5f0a2e4b322d13584c34d5b01f0d))
+
 # 1.0.0 (2023-06-10)
 
 
