@@ -21,6 +21,7 @@ const Index = () => {
           className={clsx('h-screen text-white', section.bgColor)}
         >
           <p>{section.title}</p>
+          <p>ezt itt egy ékezetes betű teszt a custom fonthoz: áÁöŐúÚüÜűŰ</p>
         </section>
       ))}
     </Main>

@@ -8,12 +8,13 @@ export const NavItem = (props: LinkProps & { title: string }) => {
     // todo: TS issue with ref from unknown reason
     // @ts-ignore
     <ScrollLink
-      className={clsx('pb-2 uppercase')}
-      activeClass="border-b border-pink-400 text-pink-400"
+      className={clsx('cursor-pointer pb-2 font-extralight uppercase')}
+      activeClass="border-b-2 border-pink-400 text-pink-400"
       spy
       smooth
       offset={props.offset || -64}
       duration={500}
+      href={`#${props.href}`}
       {...props}
     >
       {props.title}

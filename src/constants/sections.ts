@@ -8,7 +8,7 @@ export const sections: SectionProps[] = [
   {
     id: 'hello',
     title: 'Hello',
-    bgColor: 'bg-green-800',
+    bgColor: 'bg-accent',
   },
   {
     id: 'szia',

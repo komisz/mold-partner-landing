@@ -14,8 +14,13 @@ module.exports = {
       '5xl': '3rem',
       '6xl': '4rem',
     },
+    fontFamily: {
+      title: ['var(--font-inter)'],
+      body: ['var(--font-source)'],
+    },
     extend: {
       colors: {
+        accent: 'rgb(0,170,0)',
         gray: {
           100: '#f7fafc',
           200: '#edf2f7',

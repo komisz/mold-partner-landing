@@ -29,7 +29,7 @@ const Main = (props: IMainProps) => {
 
         <main className="text-xl">{props.children}</main>
 
-        <footer className="border-t border-gray-300 py-8 text-center text-sm">
+        <footer className="border-t border-gray-300 py-8 text-center font-body text-sm">
           © Copyright {new Date().getFullYear()} {AppConfig.title} Kft., Made by{' '}
           <a href="https://github.com/komisz" className="text-blue-600">
             komisz
