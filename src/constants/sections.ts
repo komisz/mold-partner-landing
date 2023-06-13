@@ -1,23 +1,27 @@
 export type SectionProps = {
   id: string;
   title: string;
-  bgColor: string;
 };
 
 export const sections: SectionProps[] = [
   {
-    id: 'hello',
-    title: 'Hello',
-    bgColor: 'bg-accent',
+    id: '/',
+    title: 'Home',
   },
   {
-    id: 'szia',
-    title: 'Szia',
-    bgColor: 'bg-green-600',
+    id: 'news',
+    title: 'News',
   },
   {
-    id: 'szervusz',
-    title: 'Szervusz',
-    bgColor: 'bg-green-400',
+    id: 'products',
+    title: 'Products',
+  },
+  {
+    id: 'about',
+    title: 'About us',
+  },
+  {
+    id: 'contact',
+    title: 'Contact',
   },
 ];

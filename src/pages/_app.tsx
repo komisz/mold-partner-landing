@@ -6,7 +6,7 @@ import { Inter, Source_Sans_Pro } from 'next/font/google';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  weight: '300',
+  weight: 'variable',
   preload: true,
 });
 const source = Source_Sans_Pro({

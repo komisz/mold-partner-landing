@@ -10,4 +10,17 @@
   a {
     @apply font-title;
   }
+
+  section {
+    @apply px-2 sm:px-6 lg:px-8 h-screen;
+  }
+}
+
+@layer utilities {
+  #nav-item-wrapper a.active {
+    @apply scale-100 border-accent;
+  }
+  #nav-item-wrapper a:not(.active) {
+    @apply scale-95 border-transparent hover:scale-100;
+  }
 }

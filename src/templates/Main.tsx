@@ -1,7 +1,6 @@
 import { type ReactNode } from 'react';
 
-import { NavItem } from '@/components/NavItem';
-import { sections } from '@/constants/sections';
+import Navbar from '@/components/Navbar';
 import { AppConfig } from '@/utils/AppConfig';
 
 type IMainProps = {
@@ -16,15 +15,7 @@ const Main = (props: IMainProps) => {
 
       <div className="mx-auto max-w-screen-xl">
         <header className="sticky top-0 bg-white">
-          <nav>
-            <ul className="flex h-16 flex-wrap items-center space-x-6 text-xl">
-              {sections.map((section) => (
-                <li key={section.id}>
-                  <NavItem title={section.title} to={section.id} />
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <Navbar />
         </header>
 
         <main className="text-xl">{props.children}</main>
@@ -34,7 +25,7 @@ const Main = (props: IMainProps) => {
           <a href="https://github.com/komisz" className="text-blue-600">
             komisz
           </a>{' '}
-          with ❤️.
+          with <span className="grayscale">❤️</span>.
         </footer>
       </div>
     </div>
