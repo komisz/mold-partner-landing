@@ -10,10 +10,6 @@
   a {
     @apply font-title;
   }
-
-  section {
-    @apply px-2 sm:px-6 lg:px-8 h-screen;
-  }
 }
 
 @layer utilities {

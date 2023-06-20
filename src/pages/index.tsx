@@ -1,5 +1,6 @@
 import { sections } from '@/constants/sections';
 import { Meta } from '@/layouts/Meta';
+import { Hero } from '@/sections/Hero';
 import { Main } from '@/templates/Main';
 
 const Index = () => {
@@ -12,8 +13,9 @@ const Index = () => {
         />
       }
     >
+      <Hero id="/" />
       {sections.map((section) => (
-        <section key={section.id} id={section.id}>
+        <section key={section.id} id={section.id} className="h-screen">
           <p>{section.title}</p>
         </section>
       ))}

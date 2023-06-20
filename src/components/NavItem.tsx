@@ -21,7 +21,7 @@ export const NavItem = (props: LinkProps) => {
       smooth
       className={clsx(
         !isLogo &&
-          'border-b py-2 text-base font-medium uppercase tracking-wider text-black backface-hidden',
+          'border-b text-base font-medium uppercase tracking-wider text-black backface-hidden',
         'origin-center transition-transform duration-300'
       )}
       activeClass="active"

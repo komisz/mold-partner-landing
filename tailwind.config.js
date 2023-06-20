@@ -49,6 +49,7 @@ module.exports = {
     extend: {
       colors: {
         accent: 'rgb(0,170,0)',
+        accent_light: '#F1FDED',
         gray: {
           100: '#f7fafc',
           200: '#edf2f7',
@@ -71,6 +72,20 @@ module.exports = {
           800: '#2c5282',
           900: '#2a4365',
         },
+      },
+      transitionProperty: {
+        width: 'width',
+        height: 'height',
+      },
+      keyframes: {
+        hyphen: {
+          '0%': { transform: 'translate(0)' },
+          '50%': { transform: 'translate(6px)' },
+          '100%': { transform: 'translate(0)' },
+        },
+      },
+      animation: {
+        hyphen: 'hyphen 1s ease-in-out',
       },
     },
   },
