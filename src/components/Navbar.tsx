@@ -1,25 +1,26 @@
 import { Disclosure } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  ArrowLeftIcon,
+  Bars3Icon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
 import clsx from 'clsx';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import { sections } from '@/constants/sections';
+import type { NavbarItemProps } from '@/constants/sections';
 import { useScrollPosition } from '@/utils/useScrollPosition';
 
-import { ButtonDefault } from './Button/Button';
+import { ButtonDefault, ButtonDownload } from './Button/Button';
 import { CompanyLogo } from './CompanyLogo';
 import { NavItem } from './NavItem';
 
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-];
-
-export default function Navbar() {
+export default function Navbar({ items }: { items: NavbarItemProps[] }) {
   const scrollPosition = useScrollPosition();
   const [show, setShow] = useState(scrollPosition < 64);
+
+  const route = useRouter();
 
   useEffect(() => {
     if (scrollPosition < 64) {
@@ -34,6 +35,7 @@ export default function Navbar() {
       <Disclosure
         as="nav"
         className={clsx(
+          'overflow-hidden',
           'transition-colors duration-200 ease-in',
           'drop-shadow-md',
           show ? 'bg-white' : 'bg-transparent'
@@ -48,9 +50,9 @@ export default function Navbar() {
               )}
             >
               <div className="relative flex h-16 items-center justify-between">
-                <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
                   {/* Mobile menu button */}
-                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <Disclosure.Button className="z-20 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:text-accent focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
                       <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -61,50 +63,74 @@ export default function Navbar() {
                 </div>
                 <div
                   id="nav-item-wrapper"
-                  className="relative flex flex-1 items-center justify-center sm:items-stretch sm:justify-between"
+                  className="relative flex flex-1 items-center justify-center lg:items-stretch lg:justify-between"
                 >
-                  <div className="flex shrink-0">
-                    <NavItem to="/" offset={-65}>
+                  {route.pathname === '/' ? (
+                    <div className="flex shrink-0 items-center justify-center">
+                      <NavItem to="/" offset={-65}>
+                        <CompanyLogo />
+                      </NavItem>
+                    </div>
+                  ) : (
+                    <Link
+                      href="/"
+                      className={clsx(
+                        'flex shrink-0 items-center justify-center',
+                        'origin-center transition-transform duration-300'
+                      )}
+                    >
+                      <ArrowLeftIcon className="mr-6 block h-6 w-6" />
                       <CompanyLogo />
-                    </NavItem>
-                  </div>
-                  <div
-                    className={clsx(
-                      'absolute inset-y-0 right-0 hidden justify-center space-x-6 sm:flex sm:items-center',
-                      show ? 'translate-x-0' : 'translate-x-[150%]',
-                      'transition-transform duration-700 ease-out'
-                    )}
-                  >
-                    {sections.map((section) => {
-                      return section.id !== '/' ? (
-                        <NavItem to={section.id} key={section.id}>
-                          {section.title}
-                        </NavItem>
-                      ) : null;
-                    })}
-                    <ButtonDefault label="Get Quote" />
-                  </div>
+                    </Link>
+                  )}
+                  {items.length ? (
+                    <div
+                      className={clsx(
+                        'absolute inset-y-0 right-0 hidden justify-center space-x-6 lg:flex lg:items-center',
+                        show ? 'translate-x-0' : 'translate-x-[150%]',
+                        'transition-transform duration-700 ease-out'
+                      )}
+                    >
+                      {items.map((section) => {
+                        return section.id !== '/' ? (
+                          <NavItem to={section.id} key={section.id}>
+                            {section.title}
+                          </NavItem>
+                        ) : null;
+                      })}
+                      <ButtonDefault label="Get Quote" />
+                    </div>
+                  ) : (
+                    <div className="absolute right-0 flex space-x-4">
+                      <ButtonDownload label=".pdf catalogue" />
+                      <ButtonDownload label="folder lib" />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
 
             {/* MOBILE MENU // todo */}
-            <Disclosure.Panel className="sm:hidden">
+            <Disclosure.Panel
+              className="lg:hidden"
+              id="nav-item-wrapper-mobile"
+            >
               <div className="space-y-1 px-2 pb-3 pt-2">
-                {navigation.map((item) => (
+                {items.map((item) => (
                   <Disclosure.Button
-                    key={item.name}
-                    as="a"
-                    href={item.href}
+                    key={item.id}
+                    as="button"
+                    // href={`#${item.id}`}
                     className={clsx(
-                      item.current
-                        ? 'bg-gray-900 text-white'
-                        : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      // item.current
+                      //   ? 'bg-gray-900 text-white'
+                      // :
+                      'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'block rounded-md px-3 py-2 text-base font-medium'
                     )}
-                    aria-current={item.current ? 'page' : undefined}
+                    // aria-current={item.current ? 'page' : undefined}
                   >
-                    {item.name}
+                    {item.title}
                   </Disclosure.Button>
                 ))}
               </div>

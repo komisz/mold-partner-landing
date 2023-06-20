@@ -10,6 +10,10 @@
   a {
     @apply font-title;
   }
+
+  h2 {
+  @apply font-title text-2xl font-semibold uppercase
+  }
 }
 
 @layer utilities {

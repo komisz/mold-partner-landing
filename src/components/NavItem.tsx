@@ -11,7 +11,6 @@ export const NavItem = (props: LinkProps) => {
     // todo: TS issue with ref from unknown reason
     // @ts-ignore
     <ScrollLink
-      offset={-64}
       duration={500}
       href={`#${props.to}`}
       onSetActive={() => setActive(true)}

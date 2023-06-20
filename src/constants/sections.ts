@@ -1,32 +1,31 @@
-import type { FC } from 'react';
-
-import { Hero } from '@/sections/Hero';
-
-export type SectionProps = {
+export type NavbarItemProps = {
   id: string;
   title: string;
-  component: FC<SectionProps>;
 };
 
-export const sections: SectionProps[] = [
+export const sections: NavbarItemProps[] = [
   {
     id: 'news',
     title: 'News',
-    component: Hero,
+  },
+  {
+    id: 'about',
+    title: 'About',
   },
   {
     id: 'products',
     title: 'Products',
-    component: Hero,
   },
   {
-    id: 'about',
-    title: 'About us',
-    component: Hero,
+    id: 'services',
+    title: 'Services',
   },
   {
-    id: 'contact',
-    title: 'Contact',
-    component: Hero,
+    id: 'contacts',
+    title: 'Contacts',
+  },
+  {
+    id: 'faq',
+    title: 'FAQ',
   },
 ];

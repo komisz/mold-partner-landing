@@ -1,3 +1,4 @@
+import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
 import React from 'react';
 import { Link } from 'react-scroll';
 
@@ -25,6 +26,18 @@ export const ButtonDefault = (props: ButtonProps) => {
       type="button"
       className="rounded-md border border-accent bg-transparent px-3.5 py-1.5 text-sm font-semibold uppercase text-accent shadow-sm hover:bg-accent hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
     >
+      {props.label}
+    </button>
+  );
+};
+
+export const ButtonDownload = (props: ButtonProps) => {
+  return (
+    <button
+      type="button"
+      className="flex items-center justify-center rounded-md border border-accent bg-transparent px-3.5 py-1.5 text-sm font-semibold uppercase text-accent shadow-sm hover:bg-accent hover:text-white focus-visible:outline focus-visible:outline-2  focus-visible:outline-offset-2 focus-visible:outline-accent"
+    >
+      <ArrowDownTrayIcon className="mr-2 block h-6 w-6" />
       {props.label}
     </button>
   );

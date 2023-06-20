@@ -1,2 +1,8 @@
 # SEO
 ☐ update site description
+
+# COMPONENTS
+☐ create a smart button comp (DRY)
+☐ make the navbar smart
+☐ remove hacky randomBgColor
+☐ smarter layout (folder) structure (DRY)
