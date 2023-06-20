@@ -52,7 +52,7 @@ const Index = () => {
                       )}
                       key={p.id}
                     >
-                      <Link href={`/products/#${p.id}`}>{p.title}</Link>
+                      <Link href={`/services/#${p.id}`}>{p.title}</Link>
                     </div>
                   );
                 })}
