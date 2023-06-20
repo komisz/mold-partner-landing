@@ -2,22 +2,23 @@ import { type ReactNode } from 'react';
 
 import { Footer } from '@/components/Footer';
 import Navbar from '@/components/Navbar';
-import { sections } from '@/constants/sections';
+import type { NavbarItemProps } from '@/constants/sections';
 
-type IMainProps = {
+type IProdProps = {
   meta: ReactNode;
   children: ReactNode;
+  items: NavbarItemProps[];
 };
 
-const Main = (props: IMainProps) => {
+const ServiceLayout = (props: IProdProps) => {
   return (
     <div className="w-full bg-white antialiased">
       {props.meta}
-      <Navbar items={sections} />
+      <Navbar items={props.items} />
       <main>{props.children}</main>
       <Footer />
     </div>
   );
 };
 
-export { Main };
+export { ServiceLayout };

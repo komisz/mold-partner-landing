@@ -1,4 +1,32 @@
 /** @type {import('tailwindcss').Config} */
+
+// eslint-disable-next-line import/no-extraneous-dependencies
+const plugin = require('tailwindcss/plugin');
+
+const backfaceVisibility = plugin(function ({ addUtilities }) {
+  addUtilities({
+    '.backface-visible': {
+      'backface-visibility': 'visible',
+      '-moz-backface-visibility': 'visible',
+      '-webkit-backface-visibility': 'visible',
+      '-ms-backface-visibility': 'visible',
+    },
+    '.backface-hidden': {
+      'backface-visibility': 'hidden',
+      '-moz-backface-visibility': 'hidden',
+      '-webkit-backface-visibility': 'hidden',
+      '-ms-backface-visibility': 'hidden',
+      // maybe works
+      '-webkit-transform-style': 'preserve-3d',
+      '-webkit-transform': 'translateZ(0)',
+      '-moz-transform': 'translateZ(0)',
+      '-ms-transform': 'translateZ(0)',
+      '-o-transform': 'translateZ(0)',
+      transform: 'translateZ(0)',
+    },
+  });
+});
+
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -14,8 +42,14 @@ module.exports = {
       '5xl': '3rem',
       '6xl': '4rem',
     },
+    fontFamily: {
+      title: ['var(--font-inter)'],
+      body: ['var(--font-source)'],
+    },
     extend: {
       colors: {
+        accent: 'rgb(0,170,0)',
+        accent_light: '#F1FDED',
         gray: {
           100: '#f7fafc',
           200: '#edf2f7',
@@ -39,7 +73,21 @@ module.exports = {
           900: '#2a4365',
         },
       },
+      transitionProperty: {
+        width: 'width',
+        height: 'height',
+      },
+      keyframes: {
+        hyphen: {
+          '0%': { transform: 'translate(0)' },
+          '50%': { transform: 'translate(6px)' },
+          '100%': { transform: 'translate(0)' },
+        },
+      },
+      animation: {
+        hyphen: 'hyphen 1s ease-in-out',
+      },
     },
   },
-  plugins: [],
+  plugins: [backfaceVisibility],
 };

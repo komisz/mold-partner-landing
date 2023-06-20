@@ -1,23 +1,31 @@
-export type SectionProps = {
+export type NavbarItemProps = {
   id: string;
   title: string;
-  bgColor: string;
 };
 
-export const sections: SectionProps[] = [
+export const sections: NavbarItemProps[] = [
   {
-    id: 'hello',
-    title: 'Hello',
-    bgColor: 'bg-green-800',
+    id: 'news',
+    title: 'News',
   },
   {
-    id: 'szia',
-    title: 'Szia',
-    bgColor: 'bg-green-600',
+    id: 'about',
+    title: 'About',
   },
   {
-    id: 'szervusz',
-    title: 'Szervusz',
-    bgColor: 'bg-green-400',
+    id: 'products',
+    title: 'Products',
+  },
+  {
+    id: 'services',
+    title: 'Services',
+  },
+  {
+    id: 'contacts',
+    title: 'Contacts',
+  },
+  {
+    id: 'faq',
+    title: 'FAQ',
   },
 ];
